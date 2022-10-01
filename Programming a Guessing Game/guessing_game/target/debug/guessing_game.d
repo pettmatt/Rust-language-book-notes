@@ -1,0 +1,1 @@
+/home/petterim/Development/Personal/Studies/Rust/Programming\ a\ Guessing\ Game/guessing_game/target/debug/guessing_game: /home/petterim/Development/Personal/Studies/Rust/Programming\ a\ Guessing\ Game/guessing_game/src/main.rs
