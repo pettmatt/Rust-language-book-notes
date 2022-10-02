@@ -6,4 +6,4 @@ I have named my own excercises little bit differently so those would be easier t
 
 *This is my way of learning Rust so there will be some experiments I do to test how similar this enviroment is to my usual JavaScript environment.*
 
-### Let's have fun hackin
+As they say... *Let's have fun hackin*
