@@ -1,1 +1,0 @@
-/home/petterim/Development/Personal/Studies/Rust/Getting\ Started/1.3.\ Hello,\ Cargo/hello_cargo/target/release/hello_cargo: /home/petterim/Development/Personal/Studies/Rust/Getting\ Started/1.3.\ Hello,\ Cargo/hello_cargo/src/main.rs
