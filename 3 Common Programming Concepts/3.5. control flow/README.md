@@ -16,7 +16,7 @@ Book: *Because `if` is an expression, we can use it on the right side of a let s
 
 Note 3: ^ And here is another reason why remembering certain terms is useful.
 
-# Loops
+## Loops
 
 Note 4: To be honest, loop seem some what primitive. But this is probably just the most basic one. Atleast when it comes to other languages there is so many ways to loop, for example in JavaScript there is; while, foreach, for, case and many more.
 
