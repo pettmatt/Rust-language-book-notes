@@ -76,4 +76,4 @@ fn dangle() -> &String {
 }
 ```
 
-The origin is dropped so the reference is pointing into 'the void', which is something that no software would want, so the reference should be just returned as normal value with `s` (dropping the reference prefix `&`).
+The origin is dropped so the reference is pointing into 'the void', which is something that no software would want, so the reference should be just returned as a normal value with `s` (dropping the reference prefix `&`).
