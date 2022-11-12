@@ -27,4 +27,4 @@ Finally if you want to point to the entire variable, it can be done with followi
 
 ## Other Slices
 
-There are other types of slices that reflect to what they sliced (or borrowed) their information from. End of story, gotta go. 
+There are other types of slices that reflect to what they sliced (or borrowed) their information from. End of story, gotta go.
