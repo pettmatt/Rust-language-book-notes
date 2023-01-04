@@ -21,6 +21,8 @@ The book points out that the expression of if-statement needs to return a boolea
 
 By including another `enum` within an `enum` the program can match **Quarter** with a **state**, using `Quarter(UsState)` syntax. **Check the main.rs file for more example about binding value to another enum.**
 
+**In short, binding means that the value inclueds binded value within it. Example Quarter(BINDED_VALUE)**
+
 ## Matching with Option<T>
 
 Syntax wise matching <T> is quite easy, but the syntax can seem a little complex at first. In this example `match` compares `x` value, if it holds a value add 1 into it, other wise do nothing.
