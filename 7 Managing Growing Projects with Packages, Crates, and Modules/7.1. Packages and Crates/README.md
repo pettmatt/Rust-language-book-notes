@@ -1,0 +1,26 @@
+# Packages and Crates
+
+- **Crates**
+  - smallest amount of code
+  - can contain modules
+  - two forms
+    - binary crate
+      - main function
+      - compiles to an executable
+      - command-line program or a server 
+    - library crate
+      - don't have main function
+      - don't compule to an executable
+      - defines functionality intended to be shared
+      - term `crate` usually means `library crate` 
+  - have a root file which is used to compile the whole crate
+  - crates can be single `rs` files
+- **Packages**
+  - bundle of one or more crates
+  - provides a set of functionality
+  - contains `Cargo.toml` file
+    - the file contains description how to build the crates
+  - cargo is a package that contains the binary crate for the command-line tool used in examples to build the code.
+  - can include any number of binary crates
+  - can **only** contain one **library crate**
+  - needs to contain atleast **one** crate
