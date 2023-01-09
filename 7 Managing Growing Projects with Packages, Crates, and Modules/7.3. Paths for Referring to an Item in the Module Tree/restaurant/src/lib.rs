@@ -30,6 +30,8 @@ mod back_of_house {
 
     pub struct Breakfast {
         pub toast: String,
+        // If we wanted to make seasonal_fruit public we could change it here.
+        // But it would 
         seasonal_fruit: String,
     }
 
