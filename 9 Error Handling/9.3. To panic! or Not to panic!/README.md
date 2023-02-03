@@ -78,6 +78,7 @@ loop {
 
   match guess.cmp(&secret_number) {
     // --snip--
+  }
 }
 ```
 
