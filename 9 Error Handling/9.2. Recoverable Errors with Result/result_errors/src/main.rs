@@ -1,9 +1,11 @@
 use std::fs::File;
 use std::io::ErrorKind;
+use std::io::{self, Read};
 
 fn main() {
     // simple_error_handler();
-    advanced_error_handler();
+    // advanced_error_handler();
+    propagating_errors();
 }
 
 fn simple_error_handler() {
@@ -53,4 +55,27 @@ fn advanced_error_handler_using_if_statements() {
             panic!("Problem opening the file: {:?}", error);
         }
     });
+}
+
+fn propagating_errors() -> Result<String, io::Error> {
+    let username_file_result = File::open("hello.txt");
+
+    let mut username_file = match username_file_result {
+        Ok(file) => file,
+        Err(e) => return Err(e), // Exits early from the function
+    };
+
+    let mut username = String::new();
+
+    match username_file.read_to_string(&mut username) {
+        Ok(_) => Ok(username),
+        Err(e) => Err(e),
+    }
+}
+
+fn propagating_errors_advanced() -> Result<String, io::Error> {
+    let mut username_file = File::open("hello.txt")?;
+    let mut username = String::new();
+    username_file.read_to_string(&mut username)?;
+    Ok(username)
 }
