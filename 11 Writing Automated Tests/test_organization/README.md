@@ -70,4 +70,4 @@ fn it_adds_two() {
 
 *This is one of the reasons Rust projects that provide a binary have a straightforward src/main.rs file that calls logic that lives in the src/lib.rs file. Using that structure, integration tests can test the library crate with use to make the important functionality available. If the important functionality works, the small amount of code in the src/main.rs file will work as well, and that small amount of code doesn’t need to be tested.*
 
-Kinda handly.
+Kinda handy.
