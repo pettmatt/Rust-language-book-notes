@@ -1,19 +1,27 @@
 use std::env;
-use std::fs;
+use std::process;
+
+use minigrep::Config;
 
 fn main() {
-    // get the arguments that were passed through command line
+    // Get the arguments that were passed through command line.
     let args: Vec<String> = env::args().collect();
-    
-    let query = &args[1];
-    let file_path = &args[2];
 
-    println!("In file {}", file_path);
-    println!("Searching for {}", query);
+    // Implementing the parse_config function through config struct might be better, because Config struct is only used in context of parse_config.
+    let config = Config::build(&args).unwrap_or_else(|err| {
+        // Handling possible errors.
+        println!("Problem parsing arguments: {err}");
+        // The process::exit function will stop the program immediately and return the number that was passed as the exit status code
+        process::exit(1);
+    });
 
-    // Read a file
-    let contents = fs::read_to_string(file_path)
-        .expect("Error occured while reading a file");
+    println!("In file {}", config.file_path);
+    println!("Searching for {}", config.query);
 
-    println!("Contents of the file:\n{}", contents);
+    // Read the file.
+    if let Err(e) = minigrep::run(config) {
+        // Because error can be returned it needs to be handled.
+        println!("Application error: {e}");
+        process::exit(1);
+    }
 }
