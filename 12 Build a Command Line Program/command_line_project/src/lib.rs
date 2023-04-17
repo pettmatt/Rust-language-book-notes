@@ -24,7 +24,12 @@ impl Config {
 
         // Ignore case variable is populated through IGNORE_CASE variable,
         // which can be passed by giving argument "IGNORE_CASE=1".
-        let ignore_case = env::var("IGNORE_CASE").is_ok();
+        // Command line argument will be secondary and environment variable will overwrite it.
+        let ignore_case = if env::var("IGNORE_CASE").is_ok() {
+            env::var("IGNORE_CASE").is_ok()
+        } else {
+            args[3] == "true"
+        };
 
         // and because the function returns Result Config needs to be wrapped.
         Ok(Config { query, file_path, ignore_case })
