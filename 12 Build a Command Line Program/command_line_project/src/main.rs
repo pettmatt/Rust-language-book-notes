@@ -10,13 +10,15 @@ fn main() {
     // Implementing the parse_config function through config struct might be better, because Config struct is only used in context of parse_config.
     let config = Config::build(&args).unwrap_or_else(|err| {
         // Handling possible errors.
-        println!("Problem parsing arguments: {err}");
+        // Note that the error is processed by the standard library error print macro.
+        eprintln!("Problem parsing arguments: {err}");
         // The process::exit function will stop the program immediately and return the number that was passed as the exit status code
         process::exit(1);
     });
 
-    println!("In file {}", config.file_path);
-    println!("Searching for {}", config.query);
+    // Commented out, so the output.txt is more readable.
+    // println!("In file {}", config.file_path);
+    // println!("Searching for {}", config.query);
 
     // Read the file.
     if let Err(e) = minigrep::run(config) {
