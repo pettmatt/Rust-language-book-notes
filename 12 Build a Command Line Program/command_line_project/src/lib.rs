@@ -2,8 +2,8 @@ use std::error::Error;
 use std::fs;
 
 pub struct Config {
-    query: String,
-    file_path: String,
+    pub query: String,
+    pub file_path: String,
 }
 
 impl Config {
@@ -31,12 +31,26 @@ pub fn run(config: Config) -> Result<(), Box<dyn Error>> {
     // ? will return the error value from the current function for the caller to handle.
     let contents = fs::read_to_string(config.file_path)?;
 
-    println!("Contents of the file:\n{}", contents);
+    for line in search(&config.query, &contents) {
+        println!("{line}");
+    }
 
     // Return Ok if everything is processed correctly.
     // Because end product is just a println Ok doesn't need to contain any other
     // thing other than "()" which is specified as a Result Ok value.
     Ok(())
+}
+
+pub fn search<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
+    let mut results = Vec::new();
+
+    for line in contents.lines() {
+        if line.contains(query) {
+            results.push(line);
+        }
+    }
+
+    results
 }
 
 // Old implementation, implemented in Config struct
