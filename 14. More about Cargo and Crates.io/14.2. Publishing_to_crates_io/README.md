@@ -55,3 +55,5 @@ The books includes great example how internal structure might not make sense in 
 In order to login to user account through terminal use `cargo login youruserapikeyhere` command. And remember the api key should not be shared.
 
 ## Adding Metadata to a New Crate
+
+Crate have some requirements before it can be published, which should be checked before the publishment. The command to publish a package through cargo can be done with `cargo publish` command.
