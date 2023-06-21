@@ -38,6 +38,8 @@ This section highlights the ups and downs of the state pattern, which are a few,
 
 ### Encoding States and Behavior as Types & Implementing Transitions as Transformations into Different Types
 
-Here the book shows an example how the code can be optimized in a way that makes it impossible to show the contents of a post that is still in draft and at the same time making the code DRYer. The second implementation example doesn't really follow the rules of a state pattern, but in this case it makes the code more simplistic, easier to not write bad code that would break how certain state should function and easier to read.
+Here the book shows an example how the code can be optimized in a way that makes it impossible to show the contents of a post that is still in draft and at the same time making the code DRYer. 
+
+The second implementation example doesn't really follow the rules of a state pattern, but in this case it makes the code more simplistic, easier to not write bad code that would break how certain state should function and easier to read.
 
 *Defining library methods, check the lib rust file.*
