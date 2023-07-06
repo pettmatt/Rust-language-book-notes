@@ -9,3 +9,5 @@ The chapter will contain following topics:
 - **Advanced types:** more about the newtype pattern, type aliases, the never type, and dynamically sized types
 Advanced functions and closures: function pointers and returning closures
 - **Macros:** ways to define code that defines more code at compile time
+
+*During this chapter I'm going to test the code in [Rust-lang playground](https://play.rust-lang.org/?version=stable&mode=debug&edition=2021). So just like the last chapter, this chapter won't include any rust files.*
