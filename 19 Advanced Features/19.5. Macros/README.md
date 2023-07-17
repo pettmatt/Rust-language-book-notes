@@ -213,7 +213,7 @@ This is how they can be used.
 pub fn sql(input: TokenStream) -> TokenStream {
 ```
 
-And above example shows how we can define new function-like macro.
+And above example shows how we can define a new function-like macro.
 
 ## Summary
 
