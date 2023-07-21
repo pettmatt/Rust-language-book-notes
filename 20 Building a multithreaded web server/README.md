@@ -8,4 +8,4 @@ By the looks of it this chapther will be more interesting than the previous one.
 - Create a proper HTTP response.
 - Improve the throughput of our server with a thread pool.
 
-Naturally because Rust doesn't include these functionalities by itself we're going to utilize multiple crates or that's what I think the chapter is going to include. Seems like I'm a little bit off and we aren't going to necessary get to use a crate that handles these functionalities for us.
+Naturally because Rust doesn't include these functionalities by itself we're probably going to utilize multiple crates or that's what I think the chapter is going to include. Seems like I'm a little bit off and we aren't going to necessary get to use a crate that handles these functionalities for us.
