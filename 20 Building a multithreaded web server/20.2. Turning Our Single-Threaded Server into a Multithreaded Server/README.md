@@ -58,3 +58,26 @@ pub fn build(size: usize) -> Result<ThreadPool, PoolCreationError>
 
 ### A `Worker` Struct Responsible for Sending Code from the ThreadPool to a Thread
 
+Because the standard library doesn't include a functionality that creates a pool of threads and waits for a request to come in and forward it to thread, we need to create the functionality through workers. What is a worker? **"The Worker picks up code that needs to be run and runs the code in the Worker’s thread".** Because `Worker` is used by the `ThreadPool` we have no reason to include public access to it, meaning it will stay as a private struct.
+
+Nice little detail about how `thread::spawn` may function in real environment and why returning `Result` could be better: **Note: If the operating system can’t create a thread because there aren’t enough system resources, thread::spawn will panic. That will cause our whole server to panic, even though the creation of some threads might succeed. For simplicity’s sake, this behavior is fine, but in a production thread pool implementation, you’d likely want to use std::thread::Builder and its spawn method that returns Result instead.**
+
+### Sending Requests to Threads via Channels
+
+To be honest this part goes somewhat over my head, so I let the book to explain the important stuff.
+
+**The next problem we’ll tackle is that the closures given to thread::spawn do absolutely nothing. Currently, we get the closure we want to execute in the execute method. But we need to give thread::spawn a closure to run when we create each Worker during the creation of the ThreadPool.**
+
+1. **The ThreadPool will create a channel and hold on to the sender.**
+2. **Each Worker will hold on to the receiver.**
+3. **We’ll create a new Job struct that will hold the closures we want to send down the channel.**
+4. **The execute method will send the job it wants to execute through the sender.**
+5. **In its thread, the Worker will loop over its receiver and execute the closures of any jobs it receives.**
+
+If I understood correctly we create a channel for every pool that manages the request. I'm not covering every single thing that is implemented in code so I focus on the important ones. It's possible that a receiver belongs to multiple workers, which may at this point create data race, which can be fixed by using `Arc<Mutex<T>>`, which in turn **will let multiple workers own the receiver, and Mutex will ensure that only one worker gets a job from the receiver at a time.**
+
+### Implementing the `execute` Method
+
+And now to the meat of the application, the execute method. We have set up quite a bit and atleast my head is little overwhelmed by it all. And here we make some of our code more readable by using type aliases. I'm quite done with the explaining the code in my notes after analysing or reading the explanation so check the `lib` file to get a grasp or just read the book I don't know.
+
+Quite interesting chapter, but I need to work on my own code in order to be able to explain with confidence how this program works. Not that it's hard to grasp, but I wouldn't be able to come up with a program like this, maybe if I followed a blueprint that included the things I needed to include to make the program compile and work as designed.
